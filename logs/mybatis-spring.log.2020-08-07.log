@@ -1,0 +1,8 @@
+2020-08-07 18:06:53.758 [main] WARN  o.s.context.support.ClassPathXmlApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [ApplicationContext.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Cannot enable lazy loading because Javassist is not available. Add Javassist to your classpath.
+2020-08-07 18:08:48.632 [main] WARN  o.s.context.support.ClassPathXmlApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [ApplicationContext.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Cannot enable lazy loading because Javassist is not available. Add Javassist to your classpath.
+2020-08-07 18:19:16.703 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout is less than 10000ms, setting to default 600000ms.
+2020-08-07 18:19:16.703 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-07 18:19:16.937 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-07 18:23:10.713 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout is less than 10000ms, setting to default 600000ms.
+2020-08-07 18:23:10.713 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-07 18:23:10.932 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.

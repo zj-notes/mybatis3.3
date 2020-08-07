@@ -100,6 +100,7 @@ public class XMLConfigBuilder extends BaseBuilder {
     return configuration;
   }
 
+  // 开始解析 mybatis-config.xml 详见 mybatis-3.3
   private void parseConfiguration(XNode root) {
     try {
       // issue #117 read properties first

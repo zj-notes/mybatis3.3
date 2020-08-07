@@ -285,27 +285,16 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, In
   public void afterPropertiesSet() throws Exception {
     notNull(dataSource, "Property 'dataSource' is required");
     notNull(sqlSessionFactoryBuilder, "Property 'sqlSessionFactoryBuilder' is required");
-    state((configuration == null && configLocation == null) || !(configuration != null && configLocation != null),
-        "Property 'configuration' and 'configLocation' can not specified with together");
-
+    state((configuration == null && configLocation == null) || !(configuration != null && configLocation != null), "Property 'configuration' and 'configLocation' can not specified with together");
+    // 生成 SqlSessionFactory 对象
     this.sqlSessionFactory = buildSqlSessionFactory();
   }
 
   /**
-   * Build a {@code SqlSessionFactory} instance.
-   *
-   * The default implementation uses the standard MyBatis {@code XMLConfigBuilder} API to build a
-   * {@code SqlSessionFactory} instance based on a Reader. Since 1.3.0, it can be specified a {@link Configuration}
-   * instance directly(without config file).
-   *
-   * @return SqlSessionFactory
-   * @throws Exception
-   *           if configuration is failed
+   * 构建 SqlSessionFactory 实例
    */
   protected SqlSessionFactory buildSqlSessionFactory() throws Exception {
-
     final Configuration targetConfiguration;
-
     XMLConfigBuilder xmlConfigBuilder = null;
     if (this.configuration != null) {
       targetConfiguration = this.configuration;
@@ -384,6 +373,7 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, In
 
     if (xmlConfigBuilder != null) {
       try {
+        // 解析 mybatis-config.xml 详见 mybatis-3.3
         xmlConfigBuilder.parse();
         LOGGER.debug(() -> "Parsed configuration file: '" + this.configLocation + "'");
       } catch (Exception ex) {
@@ -406,6 +396,7 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, In
             continue;
           }
           try {
+            // 解析 mappers配置
             XMLMapperBuilder xmlMapperBuilder = new XMLMapperBuilder(mapperLocation.getInputStream(),
                 targetConfiguration, mapperLocation.toString(), targetConfiguration.getSqlFragments());
             xmlMapperBuilder.parse();
