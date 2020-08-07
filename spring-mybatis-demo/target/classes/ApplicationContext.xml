@@ -14,8 +14,14 @@
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="configLocation" value="classpath:/mybatis-config.xml"/>
         <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="com.mybatis.demo.po"/>
+        <property name="configLocation" value="classpath:/mybatis-config.xml"/>
+        <property name="mapperLocations">
+            <list>
+                <value>classpath*:mapper/*Mapper.xml</value>
+            </list>
+        </property>
     </bean>
 
     <bean id="roleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">

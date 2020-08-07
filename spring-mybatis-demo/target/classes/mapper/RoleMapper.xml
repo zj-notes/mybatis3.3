@@ -16,7 +16,7 @@
         select
         id,role_name,note from role where role_name like CONCAT('%',#{roleName
         javaType=string,
-        jdbcType=VARCHAR,typeHandler=com.demo.handler.MyStringHandler},'%')
+        jdbcType=VARCHAR},'%')
     </select>
     <insert id="insertRole" parameterType="role">
         insert into

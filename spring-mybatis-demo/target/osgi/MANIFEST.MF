@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1596784371060
+Build-Jdk: 1.8.0_77 (Oracle Corporation)
+Build-Jdk-Spec: 1.8
+Build-Os: Windows 10 (10.0; amd64)
+Build-Tool: Apache Maven
+Bundle-Description: The MyBatis parent POM.
+Bundle-DocURL: https://mybatis-spring-demo/
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: mybatis-spring-demo
+Bundle-SymbolicName: org.mybatis.mybatis-spring-demo
+Bundle-Vendor: MyBatis.org
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Implementation-Title: mybatis-spring-demo
+Implementation-Vendor: MyBatis.org
+Implementation-Version: 1.0.0-SNAPSHOT
+Import-Package: org.springframework.context,org.springframework.context.
+ support
+Include-Resource: {ApplicationContext.xml=src/main/resources/Application
+ Context.xml},{log4j.properties=src/main/resources/log4j.properties},{ma
+ pper/RoleMapper.xml=src/main/resources/mapper/RoleMapper.xml},{mybatis-
+ config.xml=src/main/resources/mybatis-config.xml}
+Private-Package: com.mybatis.demo,com.mybatis.demo.mapper,com.mybatis.de
+ mo.po,mapper
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Specification-Title: mybatis-spring-demo
+Specification-Vendor: MyBatis.org
+Specification-Version: 1.0
+Tool: Bnd-5.1.2.202007211702
