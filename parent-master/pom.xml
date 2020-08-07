@@ -5,6 +5,9 @@
   <groupId>org.mybatis</groupId>
   <artifactId>mybatis-parent</artifactId>
   <version>32-SNAPSHOT</version>
+  <modules>
+    <module>../spring-mybatis-demo</module>
+  </modules>
   <packaging>pom</packaging>
 
   <name>mybatis-parent</name>

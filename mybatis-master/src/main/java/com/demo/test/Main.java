@@ -56,6 +56,7 @@ public class Main {
             System.out.println("result:" + role.getId() + ":" + role.getRoleName() + ":" + role.getNote());
             sqlSession.commit();
             System.out.println("================================================================");
+            sqlSession.close();
         } catch (Exception e) {
             sqlSession.rollback();
             e.printStackTrace();
