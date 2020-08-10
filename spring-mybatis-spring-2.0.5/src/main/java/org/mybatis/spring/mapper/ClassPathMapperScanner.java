@@ -45,7 +45,7 @@ import java.util.Set;
  *
  * @author Hunter Presnall
  * @author Eduardo Macarron
- * 
+ *
  * @see MapperFactoryBean
  * @since 1.2.0
  */
@@ -172,43 +172,37 @@ public class ClassPathMapperScanner extends ClassPathBeanDefinitionScanner {
     });
   }
 
-  /**
-   * Calls the parent search that will search and register all the candidates. Then the registered objects are post
-   * processed to set them as MapperFactoryBeans
-   */
+  // mybatis doScan(方法)
   @Override
   public Set<BeanDefinitionHolder> doScan(String... basePackages) {
+    // 拿到所有的 mapper
     Set<BeanDefinitionHolder> beanDefinitions = super.doScan(basePackages);
-
     if (beanDefinitions.isEmpty()) {
-      LOGGER.warn(() -> "No MyBatis mapper was found in '" + Arrays.toString(basePackages)
-          + "' package. Please check your configuration.");
+      LOGGER.warn(() -> "No MyBatis mapper was found in '" + Arrays.toString(basePackages) + "' package. Please check your configuration.");
     } else {
       processBeanDefinitions(beanDefinitions);
     }
-
     return beanDefinitions;
   }
 
   private void processBeanDefinitions(Set<BeanDefinitionHolder> beanDefinitions) {
     GenericBeanDefinition definition;
     for (BeanDefinitionHolder holder : beanDefinitions) {
-      definition = (GenericBeanDefinition) holder.getBeanDefinition();
-      String beanClassName = definition.getBeanClassName();
-      LOGGER.debug(() -> "Creating MapperFactoryBean with name '" + holder.getBeanName() + "' and '" + beanClassName
-          + "' mapperInterface");
 
-      // the mapper interface is the original class of the bean
-      // but, the actual class of the bean is MapperFactoryBean
-      definition.getConstructorArgumentValues().addGenericArgumentValue(beanClassName); // issue #59
+      definition = (GenericBeanDefinition) holder.getBeanDefinition();
+      // 设置接口类型
+      String beanClassName = definition.getBeanClassName();
+      definition.getConstructorArgumentValues().addGenericArgumentValue(beanClassName);
+
+      // 设置mapperBean的真实类型 MapperFactoryBean
       definition.setBeanClass(this.mapperFactoryBeanClass);
 
       definition.getPropertyValues().add("addToConfig", this.addToConfig);
 
       boolean explicitFactoryUsed = false;
       if (StringUtils.hasText(this.sqlSessionFactoryBeanName)) {
-        definition.getPropertyValues().add("sqlSessionFactory",
-            new RuntimeBeanReference(this.sqlSessionFactoryBeanName));
+        // 如果 sqlSessionFactoryBeanName 的名字不为空 则在Spring容器中查询，适合多数据源
+        definition.getPropertyValues().add("sqlSessionFactory", new RuntimeBeanReference(this.sqlSessionFactoryBeanName));
         explicitFactoryUsed = true;
       } else if (this.sqlSessionFactory != null) {
         definition.getPropertyValues().add("sqlSessionFactory", this.sqlSessionFactory);
@@ -216,17 +210,15 @@ public class ClassPathMapperScanner extends ClassPathBeanDefinitionScanner {
       }
 
       if (StringUtils.hasText(this.sqlSessionTemplateBeanName)) {
+        // 如果 sqlSessionTemplateBeanName 的名字不为空 则在Spring容器中查询，适合多数据源
         if (explicitFactoryUsed) {
-          LOGGER.warn(
-              () -> "Cannot use both: sqlSessionTemplate and sqlSessionFactory together. sqlSessionFactory is ignored.");
+          LOGGER.warn(() -> "Cannot use both: sqlSessionTemplate and sqlSessionFactory together. sqlSessionFactory is ignored.");
         }
-        definition.getPropertyValues().add("sqlSessionTemplate",
-            new RuntimeBeanReference(this.sqlSessionTemplateBeanName));
+        definition.getPropertyValues().add("sqlSessionTemplate", new RuntimeBeanReference(this.sqlSessionTemplateBeanName));
         explicitFactoryUsed = true;
       } else if (this.sqlSessionTemplate != null) {
         if (explicitFactoryUsed) {
-          LOGGER.warn(
-              () -> "Cannot use both: sqlSessionTemplate and sqlSessionFactory together. sqlSessionFactory is ignored.");
+          LOGGER.warn(() -> "Cannot use both: sqlSessionTemplate and sqlSessionFactory together. sqlSessionFactory is ignored.");
         }
         definition.getPropertyValues().add("sqlSessionTemplate", this.sqlSessionTemplate);
         explicitFactoryUsed = true;

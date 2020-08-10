@@ -24,8 +24,15 @@
         </property>
     </bean>
 
-    <bean id="roleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.mybatis.demo.mapper.RoleMapper"/>
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    <!-- 单个 mapper 接口配置 -->
+<!--    <bean id="roleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+<!--        <property name="mapperInterface" value="com.mybatis.demo.mapper.RoleMapper"/>-->
+<!--        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+<!--    </bean>-->
+
+    <!-- 如果有很多个 mapper 接口，则可使用 MapperScannerConfigurer 扫描包 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.mybatis.demo.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 </beans>

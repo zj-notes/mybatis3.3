@@ -112,7 +112,7 @@ public class XMLConfigBuilder extends BaseBuilder {
             objectWrapperFactoryElement(root.evalNode("objectWrapperFactory"));
             /** 6、设置 */
             settingsElement(root.evalNode("settings"));
-            /** 7、环境 */
+            /** 7、环境、DataSource */
             environmentsElement(root.evalNode("environments"));
             /** 8、databaseIdProvider */
             databaseIdProviderElement(root.evalNode("databaseIdProvider"));

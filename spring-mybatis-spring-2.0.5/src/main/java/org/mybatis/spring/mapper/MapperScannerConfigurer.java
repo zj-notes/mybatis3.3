@@ -42,51 +42,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.util.StringUtils;
 
 /**
- * BeanDefinitionRegistryPostProcessor that searches recursively starting from a base package for interfaces and
- * registers them as {@code MapperFactoryBean}. Note that only interfaces with at least one method will be registered;
- * concrete classes will be ignored.
- * <p>
- * This class was a {code BeanFactoryPostProcessor} until 1.0.1 version. It changed to
- * {@code BeanDefinitionRegistryPostProcessor} in 1.0.2. See https://jira.springsource.org/browse/SPR-8269 for the
- * details.
- * <p>
- * The {@code basePackage} property can contain more than one package name, separated by either commas or semicolons.
- * <p>
- * This class supports filtering the mappers created by either specifying a marker interface or an annotation. The
- * {@code annotationClass} property specifies an annotation to search for. The {@code markerInterface} property
- * specifies a parent interface to search for. If both properties are specified, mappers are added for interfaces that
- * match <em>either</em> criteria. By default, these two properties are null, so all interfaces in the given
- * {@code basePackage} are added as mappers.
- * <p>
- * This configurer enables autowire for all the beans that it creates so that they are automatically autowired with the
- * proper {@code SqlSessionFactory} or {@code SqlSessionTemplate}. If there is more than one {@code SqlSessionFactory}
- * in the application, however, autowiring cannot be used. In this case you must explicitly specify either an
- * {@code SqlSessionFactory} or an {@code SqlSessionTemplate} to use via the <em>bean name</em> properties. Bean names
- * are used rather than actual objects because Spring does not initialize property placeholders until after this class
- * is processed.
- * <p>
- * Passing in an actual object which may require placeholders (i.e. DB user password) will fail. Using bean names defers
- * actual object creation until later in the startup process, after all placeholder substitution is completed. However,
- * note that this configurer does support property placeholders of its <em>own</em> properties. The
- * <code>basePackage</code> and bean name properties all support <code>${property}</code> style substitution.
- * <p>
- * Configuration sample:
- *
- * <pre class="code">
- * {@code
- *   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
- *       <property name="basePackage" value="org.mybatis.spring.sample.mapper" />
- *       <!-- optional unless there are multiple session factories defined -->
- *       <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
- *   </bean>
- * }
- * </pre>
- *
- * @author Hunter Presnall
- * @author Eduardo Macarron
- *
- * @see MapperFactoryBean
- * @see ClassPathMapperScanner
+ * MapperScannerConfigurer 实现了 BeanDefinitionRegistryPostProcessor 接口，能用来注册 bean
  */
 public class MapperScannerConfigurer
     implements BeanDefinitionRegistryPostProcessor, InitializingBean, ApplicationContextAware, BeanNameAware {
@@ -328,13 +284,12 @@ public class MapperScannerConfigurer
   }
 
   /**
-   * {@inheritDoc}
-   *
-   * @since 1.0.2
+   * MapperScannerConfigurer 实现了 BeanDefinitionRegistryPostProcessor 接口
    */
   @Override
   public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) {
     if (this.processPropertyPlaceHolders) {
+      // 执行属性的处理，简单的说，就是把xml中${XXX}中的XXX替换成属性文件中的相应的值
       processPropertyPlaceHolders();
     }
 
@@ -352,9 +307,18 @@ public class MapperScannerConfigurer
     if (StringUtils.hasText(lazyInitialization)) {
       scanner.setLazyInitialization(Boolean.valueOf(lazyInitialization));
     }
+    // 根据配置的属性生成对应的过滤器，这些过滤器在扫描的时候会起作用
     scanner.registerFilters();
-    scanner.scan(
-        StringUtils.tokenizeToStringArray(this.basePackage, ConfigurableApplicationContext.CONFIG_LOCATION_DELIMITERS));
+    /**
+     * 扫描java文件
+     * 1）扫描basePackage下面的java文件
+     * 2）解析扫描到的java文件
+     * 3）调用各个在上一步骤注册的过滤器，执行相应的方法。
+     * 4）为解析后的java注册bean，注册方式采用编码的动态注册实现。
+     * 5）构造MapperFactoryBean的属性，mapperInterface，sqlSessionFactory等等，填充到BeanDefinition里面去。
+     */
+    /** 把Mapper接口转换成MapperFactoryBean */
+    scanner.scan(StringUtils.tokenizeToStringArray(this.basePackage, ConfigurableApplicationContext.CONFIG_LOCATION_DELIMITERS));
   }
 
   /*

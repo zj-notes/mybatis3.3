@@ -24,32 +24,9 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.FactoryBean;
 
 /**
- * BeanFactory that enables injection of MyBatis mapper interfaces. It can be set up with a SqlSessionFactory or a
- * pre-configured SqlSessionTemplate.
- * <p>
- * Sample configuration:
- *
- * <pre class="code">
- * {@code
- *   <bean id="baseMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" abstract="true" lazy-init="true">
- *     <property name="sqlSessionFactory" ref="sqlSessionFactory" />
- *   </bean>
- *
- *   <bean id="oneMapper" parent="baseMapper">
- *     <property name="mapperInterface" value="my.package.MyMapperInterface" />
- *   </bean>
- *
- *   <bean id="anotherMapper" parent="baseMapper">
- *     <property name="mapperInterface" value="my.package.MyAnotherMapperInterface" />
- *   </bean>
- * }
- * </pre>
- * <p>
- * Note that this factory can only inject <em>interfaces</em>, not concrete classes.
- *
- * @author Eduardo Macarron
- *
- * @see SqlSessionTemplate
+ * MapperFactoryBean 实现了 FactoryBean 接口，
+ * RoleMapper roleMapper = (RoleMapper) context.getBean("mapperFactoryBean") 会调用 MapperFactoryBean 的 getObject() 方法
+ * getObject() 返回 getSqlSession().getMapper(this.mapperInterface)，拿到具体的 Mapper。后续流程详见 mybatis3.3
  */
 public class MapperFactoryBean<T> extends SqlSessionDaoSupport implements FactoryBean<T> {
 

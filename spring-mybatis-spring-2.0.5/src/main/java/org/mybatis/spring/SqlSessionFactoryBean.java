@@ -69,9 +69,10 @@ import static org.springframework.util.StringUtils.tokenizeToStringArray;
 
 
 /**
+ * SqlSessionFactoryBean 有个 名为 sqlSessionFactory 的 SqlSessionFactory 类型的属性，
  * SqlSessionFactoryBean 实现了 FactoryBean 接口，可用于生成其他复杂的 bean,此处用来生成 SqlSessionFactory
- * 在调用getBean的时候会返回该工厂返回的实例对象
- *
+ * MapperFactoryBean 中包含 名为 sqlSessionFactory 的属性，再实例化 MapperFactoryBean 会从 beanFactory 中获取 sqlSessionFactory 对象
+ * 因为 SqlSessionFactoryBean 是 FactoryBean，所以 beanFactory.getBean("sqlSessionFactory") 会调用 SqlSessionFactoryBean.getObject() 方法，此时返回的是 SqlSessionFactory 类的实例
  */
 public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, InitializingBean, ApplicationListener<ApplicationEvent> {
 
@@ -382,7 +383,7 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, In
         ErrorContext.instance().reset();
       }
     }
-
+    // 数据源
     targetConfiguration.setEnvironment(new Environment(this.environment,
         this.transactionFactory == null ? new SpringManagedTransactionFactory() : this.transactionFactory,
         this.dataSource));
