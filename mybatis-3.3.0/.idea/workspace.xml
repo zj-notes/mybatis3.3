@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="ProjectId" id="2G3wn9TEtfDc81MBJM7z4df8iCt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="flattenModules" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-mybatis-demo/src/main/resources/mapper" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.37241378" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mybatis.demo.mapper" />
+      <recent name="com.mybatis.demo.po" />
+      <recent name="com.demo.mapper" />
+      <recent name="com.demo.po" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\idea\mybatis\spring-mybatis-demo\src\main\resources\mapper" />
+      <recent name="E:\idea\mybatis\mybatis-3.5.5\src\main\java\com\demo\mapper" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Demo">
+    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mybatis.demo.Demo" />
+      <module name="mybatis-spring-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mybatis.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JdbcTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.demo.test.JdbcTest" />
+      <module name="mybatis-3.3.0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.demo.test.Main" />
+      <module name="mybatis-3.5.5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.demo.test.Main" />
+      <module name="mybatis-3.3.0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Demo" />
+        <item itemvalue="Application.JdbcTest" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="" />
+      <created>1665630739726</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665630739726</updated>
+      <workItem from="1665630744715" duration="2756000" />
+      <workItem from="1665633531503" duration="4511000" />
+      <workItem from="1665644052573" duration="268000" />
+    </task>
+    <task id="LOCAL-00001" summary="111">
+      <created>1665640361445</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665640361445</updated>
+    </task>
+    <task id="LOCAL-00002" summary="111">
+      <created>1665640668861</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665640668861</updated>
+    </task>
+    <task id="LOCAL-00003" summary="112">
+      <created>1665641875771</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665641875771</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="111" />
+    <MESSAGE value="112" />
+    <option name="LAST_COMMIT_MESSAGE" value="112" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="752" y="383" key="#Scopes" timestamp="1665639307717">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="752" y="383" key="#Scopes/0.0.1920.1050@0.0.1920.1050" timestamp="1665639307716" />
+    <state x="765" y="209" key="#com.intellij.ide.util.MemberChooser" timestamp="1665638991961">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="765" y="209" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1665638991961" />
+    <state x="773" y="296" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1665638819108">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="773" y="296" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1665638819108" />
+    <state x="740" y="218" key="FileChooserDialogImpl" timestamp="1665639245371">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="218" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1665639245371" />
+    <state width="1877" height="314" key="GridCell.Tab.0.bottom" timestamp="1665641914456">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="314" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1665641914456" />
+    <state width="1877" height="314" key="GridCell.Tab.0.center" timestamp="1665641914455">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="314" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1665641914455" />
+    <state width="1877" height="314" key="GridCell.Tab.0.left" timestamp="1665641914455">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="314" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1665641914455" />
+    <state width="1877" height="314" key="GridCell.Tab.0.right" timestamp="1665641914456">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="314" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1665641914456" />
+    <state width="1877" height="261" key="GridCell.Tab.1.bottom" timestamp="1665641914450">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="261" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1665641914450" />
+    <state width="1877" height="261" key="GridCell.Tab.1.center" timestamp="1665641914450">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="261" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1665641914450" />
+    <state width="1877" height="261" key="GridCell.Tab.1.left" timestamp="1665641914450">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="261" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1665641914450" />
+    <state width="1877" height="261" key="GridCell.Tab.1.right" timestamp="1665641914450">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="261" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1665641914450" />
+    <state x="540" y="260" key="IDE.errors.dialog" timestamp="1665641896511">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="540" y="260" key="IDE.errors.dialog/0.0.1920.1050@0.0.1920.1050" timestamp="1665641896511" />
+    <state x="625" y="229" key="NewModule_or_Project.wizard" timestamp="1665639246844">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="625" y="229" key="NewModule_or_Project.wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1665639246844" />
+    <state x="466" y="288" width="1040" height="708" key="SettingsEditor" timestamp="1665644316930">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="466" y="288" width="1040" height="708" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1665644316930" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1665641887585">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1665641887585" />
+    <state x="742" y="259" width="583" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1665640490545">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="742" y="259" width="583" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1665640490545" />
+    <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1665630987643">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1665630987643" />
+    <state x="616" y="243" key="run.anything.popup" timestamp="1665638050021">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1665638050021" />
+    <state x="616" y="178" width="670" height="676" key="search.everywhere.popup" timestamp="1665639659580">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="178" width="670" height="676" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1665639659580" />
+  </component>
+</project>
