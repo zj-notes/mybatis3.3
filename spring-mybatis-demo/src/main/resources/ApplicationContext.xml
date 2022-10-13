@@ -10,9 +10,11 @@
 
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/gims?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"/>
-        <property name="username" value="gims"/>
-        <property name="password" value="gims"/>
+
+        <property name="jdbcUrl" value="jdbc:mysql://10.1.32.29:3306/gopher_auth?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"/>
+        <property name="username" value="gopher_auth"/>
+        <property name="password" value="gopher_auth"/>
+
         <property name="maximumPoolSize" value="1000" />
         <property name="idleTimeout" value="500" />
         <property name="connectionTestQuery" value="select 1 from dual"></property>
@@ -27,14 +29,6 @@
                 <value>classpath*:mapper/*Mapper.xml</value>
             </list>
         </property>
-<!--        插件-->
-<!--        <property name="plugins">-->
-<!--            <list>-->
-<!--                <bean class="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor" >-->
-<!--                    <property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.OracleDialect" />-->
-<!--                </bean>-->
-<!--            </list>-->
-<!--        </property>-->
     </bean>
 
     <!-- 单个 mapper 接口配置 -->

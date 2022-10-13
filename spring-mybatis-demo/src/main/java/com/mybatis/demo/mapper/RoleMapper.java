@@ -1,10 +1,12 @@
+
 package com.mybatis.demo.mapper;
 
-import com.mybatis.demo.po.Role;
+
+import com.mybatis.demo.po.TblSysRole;
 
 public interface RoleMapper {
-    public Role getRole(Long id);
-    public Role findRole(String roleName);
-    public int deleteRole(Long id);
-    public int insertRole(Role role);
+    public TblSysRole getRole(String id);
+    public TblSysRole findRole(String roleName);
+    public int deleteRole(String id);
+    public int insertRole(TblSysRole role);
 }
