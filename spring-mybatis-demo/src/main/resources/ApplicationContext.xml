@@ -27,6 +27,14 @@
                 <value>classpath*:mapper/*Mapper.xml</value>
             </list>
         </property>
+<!--        插件-->
+<!--        <property name="plugins">-->
+<!--            <list>-->
+<!--                <bean class="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor" >-->
+<!--                    <property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.OracleDialect" />-->
+<!--                </bean>-->
+<!--            </list>-->
+<!--        </property>-->
     </bean>
 
     <!-- 单个 mapper 接口配置 -->
