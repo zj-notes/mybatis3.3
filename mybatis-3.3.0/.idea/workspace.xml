@@ -16,19 +16,17 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/datasource/DruidTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/datasource/HikariTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/jdbc/JdbcTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resource/druid.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/test/JdbcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/jdbc/JdbcTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis-3.5.5/src/main/java/com/demo/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis-3.5.5/src/main/java/com/demo/main/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +69,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-mybatis-demo/src/main/resources/mapper" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37241378" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
@@ -184,6 +182,7 @@
       <workItem from="1665656369859" duration="2751000" />
       <workItem from="1666766120438" duration="14123000" />
       <workItem from="1666861052482" duration="4269000" />
+      <workItem from="1666937402536" duration="321000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1665640361445</created>
@@ -217,7 +216,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
