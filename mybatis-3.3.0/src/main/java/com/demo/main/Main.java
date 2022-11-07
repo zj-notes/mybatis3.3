@@ -53,8 +53,12 @@ public class Main {
             TblSysRole role = roleMapper.getRole("111");     // 是代理对象
 
             System.out.println("result:" + role.getId() + ":" + role.getRoleName() + ":" + role.getRoleCode());
-            sqlSession.commit();
             System.out.println("================================================================");
+
+//            TblSysRole role2 = roleMapper.getRole("111");     // 是代理对象
+//            System.out.println("result:" + role2.getId() + ":" + role2.getRoleName() + ":" + role2.getRoleCode());
+
+            sqlSession.commit();
             sqlSession.close();
         } catch (Exception e) {
             sqlSession.rollback();

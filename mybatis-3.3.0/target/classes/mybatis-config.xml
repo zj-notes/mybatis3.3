@@ -54,11 +54,20 @@
     <!--mybatis中的plugin其实就是个 interceptor， 它可以拦截 Executor 、ParameterHandler 、ResultSetHandler 、StatementHandler 的部分方法，处理我们自己的逻辑-->
     <!--Executor 就是真正执行sql语句的东西， ParameterHandler 是处理我们传入参数-->
     <!--自定义一个 plugin, 需要去实现 Interceptor 接口-->
-    <!--<plugins>-->
-    <!--    <plugin interceptor="org.mybatis.example.ExamplePlugin">-->
-    <!--        <property name="someProperty" value="100"/>-->
-    <!--    </plugin>-->
-    <!--</plugins>-->
+    <plugins>
+        <plugin interceptor="com.demo.interceptor.StatementInterceptor">
+            <property name="someProperty" value="100"/>
+        </plugin>
+        <plugin interceptor="com.demo.interceptor.ExecutorInterceptor">
+            <property name="someProperty" value="100"/>
+        </plugin>
+        <plugin interceptor="com.demo.interceptor.ParameterInterceptor">
+            <property name="someProperty" value="100"/>
+        </plugin>
+        <plugin interceptor="com.demo.interceptor.ResultSetInterceptor">
+            <property name="someProperty" value="100"/>
+        </plugin>
+    </plugins>
 
     <environments default="development">
         <environment id="development">

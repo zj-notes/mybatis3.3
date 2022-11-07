@@ -26,7 +26,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="" />
+    <list default="true" id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/ExecutorInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/ParameterInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/ResultSetInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/StatementInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/datasource/HikariTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/datasource/HikariTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/handler/MyStringHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/handler/MyStringHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/jdkproxy5/HWInvocationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/jdkproxy5/HWInvocationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/executor/CachingExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/executor/CachingExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/plugin/Plugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/plugin/Plugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mybatis-3.5.5/src/main/java/com/demo/handler/MyStringHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis-3.5.5/src/main/java/com/demo/handler/MyStringHandler.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +63,13 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://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@github.com/zj-notes/mybatis3.3.git" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="2G3wn9TEtfDc81MBJM7z4df8iCt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -67,7 +87,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-mybatis-demo/src/main/resources/mapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-mybatis-demo" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -76,31 +96,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.demo.handler" />
+      <recent name="com.demo.interceptor" />
       <recent name="com.demo.test" />
       <recent name="com.mybatis.demo.mapper" />
       <recent name="com.mybatis.demo.po" />
-      <recent name="com.demo.mapper" />
-      <recent name="com.demo.po" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\idea\mybatis\spring-mybatis-demo\src\main\resources\mapper" />
       <recent name="E:\idea\mybatis\mybatis-3.5.5\src\main\java\com\demo\mapper" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HikariTest">
-    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.mybatis.demo.Demo" />
-      <module name="mybatis-spring-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mybatis.demo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="DruidTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.demo.datasource.DruidTest" />
       <module name="mybatis-3.3.0" />
@@ -153,13 +160,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.demo.main.Main" />
+      <module name="mybatis-3.3.0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.HikariTest" />
         <item itemvalue="Application.DruidTest" />
         <item itemvalue="Application.JdbcTest" />
         <item itemvalue="Application.JdbcTest2" />
-        <item itemvalue="Application.Demo" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +202,11 @@
       <workItem from="1665656369859" duration="2751000" />
       <workItem from="1666766120438" duration="14123000" />
       <workItem from="1666861052482" duration="4269000" />
-      <workItem from="1666937402536" duration="321000" />
+      <workItem from="1666937402536" duration="8029000" />
+      <workItem from="1667198208355" duration="2429000" />
+      <workItem from="1667527429509" duration="5475000" />
+      <workItem from="1667784659131" duration="9517000" />
+      <workItem from="1667809767142" duration="5201000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1665640361445</created>
@@ -253,62 +277,66 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="773" y="296" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1665638819108" />
-    <state width="461" height="466" key="DebuggerActiveHint" timestamp="1666781935683">
+    <state width="744" height="480" key="DebuggerActiveHint" timestamp="1667814386979">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="461" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1666781935683" />
-    <state x="740" y="218" key="FileChooserDialogImpl" timestamp="1665639245371">
+    <state width="744" height="480" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1667814386979" />
+    <state x="740" y="218" key="FileChooserDialogImpl" timestamp="1667532224705">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="218" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1665639245371" />
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom" timestamp="1666866270863">
+    <state x="740" y="218" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1667532224705" />
+    <state width="1877" height="342" key="GridCell.Tab.0.bottom" timestamp="1667815133501">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1666866270863" />
-    <state width="1877" height="221" key="GridCell.Tab.0.center" timestamp="1666866270863">
+    <state width="1877" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1667815133501" />
+    <state width="1877" height="342" key="GridCell.Tab.0.center" timestamp="1667815133500">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1666866270863" />
-    <state width="1877" height="221" key="GridCell.Tab.0.left" timestamp="1666866270863">
+    <state width="1877" height="342" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1667815133500" />
+    <state width="1877" height="342" key="GridCell.Tab.0.left" timestamp="1667815133500">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1666866270863" />
-    <state width="1877" height="221" key="GridCell.Tab.0.right" timestamp="1666866270863">
+    <state width="1877" height="342" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1667815133500" />
+    <state width="1877" height="342" key="GridCell.Tab.0.right" timestamp="1667815133500">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1666866270863" />
-    <state width="1877" height="221" key="GridCell.Tab.1.bottom" timestamp="1666866270863">
+    <state width="1877" height="342" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1667815133500" />
+    <state width="1877" height="342" key="GridCell.Tab.1.bottom" timestamp="1667815133570">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1666866270863" />
-    <state width="1877" height="221" key="GridCell.Tab.1.center" timestamp="1666866270863">
+    <state width="1877" height="342" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1667815133570" />
+    <state width="1877" height="342" key="GridCell.Tab.1.center" timestamp="1667815133570">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1666866270863" />
-    <state width="1877" height="221" key="GridCell.Tab.1.left" timestamp="1666866270863">
+    <state width="1877" height="342" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1667815133570" />
+    <state width="1877" height="342" key="GridCell.Tab.1.left" timestamp="1667815133570">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1666866270863" />
-    <state width="1877" height="221" key="GridCell.Tab.1.right" timestamp="1666866270863">
+    <state width="1877" height="342" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1667815133570" />
+    <state width="1877" height="342" key="GridCell.Tab.1.right" timestamp="1667815133570">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1666866270863" />
+    <state width="1877" height="342" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1667815133570" />
     <state x="540" y="260" key="IDE.errors.dialog" timestamp="1665641896511">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="540" y="260" key="IDE.errors.dialog/0.0.1920.1050@0.0.1920.1050" timestamp="1665641896511" />
-    <state x="625" y="229" key="NewModule_or_Project.wizard" timestamp="1665639246844">
+    <state x="625" y="229" key="NewModule_or_Project.wizard" timestamp="1667532226300">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="625" y="229" key="NewModule_or_Project.wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1665639246844" />
-    <state x="466" y="288" width="1040" height="708" key="SettingsEditor" timestamp="1665644316930">
+    <state x="625" y="229" key="NewModule_or_Project.wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1667532226300" />
+    <state x="466" y="288" width="1040" height="708" key="SettingsEditor" timestamp="1667532237617">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="466" y="288" width="1040" height="708" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1665644316930" />
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1665641887585">
+    <state x="466" y="288" width="1040" height="708" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1667532237617" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1666937858101">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1665641887585" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1666937858101" />
+    <state width="968" height="533" key="XDebugger.FullValuePopup" timestamp="1667800644467">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="968" height="533" key="XDebugger.FullValuePopup/0.0.1920.1050@0.0.1920.1050" timestamp="1667800644467" />
     <state x="742" y="259" width="583" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1665640490545">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -317,10 +345,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1665630987643" />
-    <state x="512" y="254" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1665658114387">
+    <state x="512" y="254" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1667814414900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="512" y="254" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1050@0.0.1920.1050" timestamp="1665658114387" />
+    <state x="512" y="254" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1050@0.0.1920.1050" timestamp="1667814414900" />
     <state x="667" y="258" width="589" height="534" key="find.popup" timestamp="1666766219125">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -329,20 +357,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1666767161400" />
-    <state x="963" y="207" width="670" height="676" key="search.everywhere.popup" timestamp="1666767480464">
+    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup" timestamp="1667813034441">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="963" y="207" width="670" height="676" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1666767480464" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.2.3/druid-1.2.3-sources.jar!/com/alibaba/druid/pool/DruidDataSource.java</url>
-          <line>2636</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1667813034441" />
   </component>
 </project>

@@ -112,7 +112,7 @@ public class Plugin implements InvocationHandler {
         Set<Class<?>> interfaces = new HashSet<Class<?>>();
         while (type != null) {
             for (Class<?> c : type.getInterfaces()) {
-                //貌似只能拦截ParameterHandler|ResultSetHandler|StatementHandler|Executor
+                //只能拦截ParameterHandler|ResultSetHandler|StatementHandler|Executor
                 //拦截其他的无效
                 //当然我们可以覆盖Plugin.wrap方法，达到拦截其他类的功能
                 if (signatureMap.containsKey(c)) {

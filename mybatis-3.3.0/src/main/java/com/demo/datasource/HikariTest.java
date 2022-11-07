@@ -2,6 +2,7 @@ package com.demo.datasource;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import com.zaxxer.hikari.pool.HikariProxyConnection;
 
 import java.sql.*;
 import java.util.UUID;
@@ -16,11 +17,11 @@ public class HikariTest {
         hikariConfig.setPassword("gopher_auth");
 
         HikariDataSource dataSource = new HikariDataSource(hikariConfig);
-        Connection conn = null;
+        HikariProxyConnection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try{
-            conn = dataSource.getConnection();
+            conn = (HikariProxyConnection) dataSource.getConnection();
             String sql = "insert into tbl_sys_role (id, role_name, role_code, system_code) values (?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sql);
             String id = UUID.randomUUID().toString().replace("-", "");  // 41a68e9895b0437b9d35792c85565a96

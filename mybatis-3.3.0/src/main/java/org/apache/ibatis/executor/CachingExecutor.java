@@ -83,7 +83,7 @@ public class CachingExecutor implements Executor {
                 if (list == null) {
                     // 委托模式，交给 SimpleExecutor 等实现类去实现方法，SimpleExecutor 继承 BaseExecutor 抽象类，下述方法进入 BaseExecutor 类
                     list = delegate.<E>query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
-                    // 存入耳机缓存
+                    // 存入二级缓存
                     tcm.putObject(cache, key, list);
                 }
                 return list;

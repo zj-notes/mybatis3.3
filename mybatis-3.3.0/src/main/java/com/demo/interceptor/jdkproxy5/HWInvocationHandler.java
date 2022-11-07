@@ -22,6 +22,7 @@ public class HWInvocationHandler implements InvocationHandler {
 	}
 
 	public static Object wrap(Object target, Interceptor interceptor) {
+
 		HWInvocationHandler targetProxy = new HWInvocationHandler(target, interceptor);
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(),
 				targetProxy);
