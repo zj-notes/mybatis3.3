@@ -53,7 +53,7 @@ public final class TypeHandlerRegistry {
         register(JdbcType.DOUBLE, new DoubleTypeHandler());
 
         // 以下是为同一个类型的多种变种注册到多个不同的handler
-        register(String.class, new StringTypeHandler());
+        register(String.class, new StringTypeHandler()); // 注册一个 String 默认的类型处理器，StringTypeHandler
         register(String.class, JdbcType.CHAR, new StringTypeHandler());
         register(String.class, JdbcType.CLOB, new ClobTypeHandler());
         register(String.class, JdbcType.VARCHAR, new StringTypeHandler());

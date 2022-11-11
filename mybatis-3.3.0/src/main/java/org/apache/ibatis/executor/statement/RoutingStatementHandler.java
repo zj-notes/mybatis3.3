@@ -14,6 +14,7 @@ import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 
 // 路由选择语句处理器
+// 装饰器模式，作用不大
 public class RoutingStatementHandler implements StatementHandler {
 
     private final StatementHandler delegate;

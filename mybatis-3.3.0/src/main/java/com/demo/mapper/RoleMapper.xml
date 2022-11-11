@@ -3,25 +3,60 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.demo.mapper.RoleMapper">
+
     <resultMap type="role" id="roleMap">
         <id column="id" property="id" javaType="string" jdbcType="VARCHAR"/>
         <result column="role_name" property="roleName" javaType="string" jdbcType="VARCHAR"/>
         <result column="role_code" property="roleCode" typeHandler="com.demo.handler.MyStringHandler"/>
     </resultMap>
+
     <select id="getRole" parameterType="String" resultMap="roleMap">
         select
         id,role_name as roleName,role_code as roleCode from tbl_sys_role where id=#{id}
     </select>
+
+    <select id="getRoleByParam" resultMap="roleMap">
+        select
+        id,role_name as roleName,role_code as roleCode from tbl_sys_role where id=#{id}
+    </select>
+
+    <select id="getRoleByIdAndName" resultMap="roleMap">
+        select
+        id,role_name as roleName,role_code as roleCode from tbl_sys_role where id=#{id} and role_name like CONCAT('%',#{roleName},'%')
+    </select>
+
+    <select id="getRoleByIdAndNameByMap" parameterType="hashmap" resultMap="roleMap">
+        select
+        id,role_name as roleName,role_code as roleCode from tbl_sys_role where id=#{id} and role_name like CONCAT('%',#{roleName},'%')
+    </select>
+
+    <select id="getRoleByIdAndNameByParam" resultMap="roleMap">
+        select
+        id,role_name as roleName,role_code as roleCode from tbl_sys_role where id=#{id} and role_name like CONCAT('%',#{roleName},'%')
+    </select>
+
+    <select id="getRoleByBean"  resultMap="roleMap">
+        select
+        id,role_name as roleName,role_code as roleCode from tbl_sys_role where id=#{id} and role_name like CONCAT('%',#{roleName},'%')
+    </select>
+
+    <select id="getRoleByBean2"  resultMap="roleMap">
+        select
+        id,role_name as roleName,role_code as roleCode from tbl_sys_role where id=#{role.id} and role_name like CONCAT('%',#{role.roleName},'%')
+    </select>
+
     <select id="findRole" parameterType="String" resultMap="roleMap">
         select
         id,role_name,role_code from tbl_sys_role where role_name like CONCAT('%',#{roleName
         javaType=string,
         jdbcType=VARCHAR,typeHandler=com.demo.handler.MyStringHandler},'%')
     </select>
+
     <insert id="insertRole" parameterType="role">
         insert into
         tbl_sys_role(role_name, role_code) value(#{roleName},#{roleCode})
     </insert>
+
     <delete id="deleteRole" parameterType="String">
         delete from tbl_sys_role where
         id=#{id}

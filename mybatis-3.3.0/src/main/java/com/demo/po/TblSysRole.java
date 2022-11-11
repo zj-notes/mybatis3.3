@@ -31,4 +31,13 @@ public class TblSysRole {
     public void setRoleCode(String roleCode) {
         this.roleCode = roleCode;
     }
+
+    @Override
+    public String toString() {
+        return "TblSysRole{" +
+                "id='" + id + '\'' +
+                ", roleName='" + roleName + '\'' +
+                ", roleCode='" + roleCode + '\'' +
+                '}';
+    }
 }

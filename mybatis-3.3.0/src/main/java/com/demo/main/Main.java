@@ -32,7 +32,7 @@ public class Main {
              * 具体可以分为以下几步：
              * 1、加载配置文件到 Configuration
              * 2、构建 SQlSessionFactory
-             * 3、打开 SqlSession 会话
+             * 3、打开 SqlSession 会话、创建执行器 Executor
              * 4、Executor 开始处理请求
              * 5、SqlSource 解析Sql
              * 6、StatementHandler 执行sql
@@ -55,7 +55,7 @@ public class Main {
             System.out.println("result:" + role.getId() + ":" + role.getRoleName() + ":" + role.getRoleCode());
             System.out.println("================================================================");
 
-//            TblSysRole role2 = roleMapper.getRole("111");     // 是代理对象
+//            TblSysRole role2 = roleMapper.getRole("111");
 //            System.out.println("result:" + role2.getId() + ":" + role2.getRoleName() + ":" + role2.getRoleCode());
 
             sqlSession.commit();

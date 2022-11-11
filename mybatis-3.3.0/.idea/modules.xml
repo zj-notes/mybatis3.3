@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../help/help.iml" filepath="$PROJECT_DIR$/../help/help.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-3.3.0.iml" filepath="$PROJECT_DIR$/mybatis-3.3.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/../mybatis-3.5.5/mybatis-3.5.5.iml" filepath="$PROJECT_DIR$/../mybatis-3.5.5/mybatis-3.5.5.iml" />
       <module fileurl="file://$PROJECT_DIR$/../parent-mybatis-parent-32/mybatis-parent.iml" filepath="$PROJECT_DIR$/../parent-mybatis-parent-32/mybatis-parent.iml" />

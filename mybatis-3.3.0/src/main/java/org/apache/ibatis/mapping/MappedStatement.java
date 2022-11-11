@@ -25,7 +25,7 @@ public final class MappedStatement {
     private ResultSetType resultSetType;
     // SQL源码
     private SqlSource sqlSource;
-    // 危机缓存
+    // 缓存
     private Cache cache;
     private ParameterMap parameterMap;
     private List<ResultMap> resultMaps;

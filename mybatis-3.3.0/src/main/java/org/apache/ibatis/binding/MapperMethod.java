@@ -220,7 +220,6 @@ public class MapperMethod {
             this.mapKey = getMapKey(method);
             this.returnsMap = (this.mapKey != null);
             this.hasNamedParameters = hasNamedParams(method);
-            // 以下重复循环2遍调用getUniqueParamIndex，是不是降低效率了
             // 记下RowBounds是第几个参数
             this.rowBoundsIndex = getUniqueParamIndex(method, RowBounds.class);
             // 记下ResultHandler是第几个参数
@@ -356,7 +355,6 @@ public class MapperMethod {
             for (Object[] paramAnno : paramAnnos) {
                 for (Object aParamAnno : paramAnno) {
                     if (aParamAnno instanceof Param) {
-                        // 查找@Param注解,一般不会用注解吧，可以忽略
                         hasNamedParams = true;
                         break;
                     }
