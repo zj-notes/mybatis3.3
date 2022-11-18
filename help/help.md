@@ -1,6 +1,6 @@
-#### 1、JDBC
+## 1、JDBC
 
-##### JDBC操作数据库
+### JDBC操作数据库
 
 JDBC是用于Java编程语言和数据库之间的数据库无关连接的标准Java API。换句话说，使用JAVA语言连接数据库进行操作，就需要使用JDBC API。统一的JDBC API接口，屏蔽了底层数据库的细节，可以使用一致性的编码（跨数据库）对数据库进行操作。
 
@@ -12,7 +12,7 @@ JDBC操作数据库大致三个步骤:
 
 3. 处理返回结果
 
-   ![JDBC一般流程](./jdbc.png)
+   ![JDBC一般流程](.\image\jdbc.png)
 
    JDBC示例
 
@@ -64,7 +64,7 @@ try {
 }
 ```
 
-##### JDBC存在的问题
+### JDBC存在的问题
 
 **代码冗余**
 
@@ -76,7 +76,7 @@ Java作为面向对象编程语言，一切皆是对象，但常用的数据库�
 
 在对象与关系型数据库的字段之间，缺少用于将字段与对象进行映射对照，只能由程序员借助于JDBC自己手动的将字段组装成对象，JDBC对象的映射全靠自己。
 
-#### 2、ORM框架
+## 2、ORM框架
 
 ORM：对象关系映射（Object Relational Mapping）
 
@@ -84,7 +84,7 @@ JDBC将应用程序开发者与底层数据库驱动程序进行解耦，作为�
 
 ORM工具就是JDBC的封装，用于完成Java对象与关系型数据库的映射，简化了JDBC的使用。
 
-![](./orm.png)
+![](.\image\orm.png)
 
 ORM工具框架最大的核心就是封装了JDBC的交互，不再需要处理结果集中的字段或者行或者列，借助于ORM可以快速进行开发，而无需关注JDBC交互细节。
 
@@ -92,14 +92,25 @@ ORM工具框架最大的核心就是封装了JDBC的交互，不再需要处理�
 
 
 
-#### 3、MyBatis
+## 3、MyBatis
 
-##### 什么是 MyBatis
+### 3.1 什么是 MyBatis
 
 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。
+
 [参考文档]: https://mybatis.net.cn/	"MyBatis中文网"
 
-##### MyBatis操作数据库
+与其他比较标准的 ORM 框架（比如 Hibernate ）不同， mybatis 并没有将 [java](https://www.w3cschool.cn/java/) 对象与数据库关联起来，而是将 [java](https://www.w3cschool.cn/java/) 方法与 [sql](https://www.w3cschool.cn/sql/) 语句关联起来，自己写 [sql](https://www.w3cschool.cn/sql/) 语句的好处是，可以根据自己的需求，写出最优的 [sql](https://www.w3cschool.cn/sql/) 语句。灵活性高。但是，由于是自己写 [sql](https://www.w3cschool.cn/sql/) 语句，导致平台可移植性不高。[MySQL](https://www.w3cschool.cn/mysql/) 语句和 [Oracle](https://www.w3cschool.cn/oraclejc/) 语句不同。
+
+**MyBatis操作数据库**
+
+原生MyBatis一般流程
+
+1. 加载配置文件到 Configuration
+2. 构建 SQlSessionFactory
+3. 获取 SqlSession，创建执行器 Executor
+4. 获取 Mapper 对象(动态代理对象)
+5. 执行 SQL
 
 ```
 // 加载 mybatis 全局配置文件
@@ -115,15 +126,208 @@ TblSysRole role = roleMapper.getRole("111");
 System.out.println(role.toString());
 ```
 
+**全局配置文件**
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration> <!--配置-->
+    <properties/> <!--属性-->
+    <settings/> <!--全局配置参数-->
+    <typeAliases/> <!--类型别名-->
+    <typeHandlers/> <!--类型处理器-->
+    <objectFactory/><!--对象工厂-->
+    <plugins/><!--创建-->
+    <environments default=""><!--环境配置-->
+        <environment id=""><!--环境变量-->
+            <transactionManager type=""/><!--事务管理器-->
+            <dataSource type=""/><!--数据源-->
+        </environment>
+    </environments>
+    <databaseIdProvider type=""/><!--数据库厂商标识-->
+    <mappers/><!--映射器-->
+</configuration>
+```
+
+### 3.2 Mapper接口
+
+使用 mapper 接口的方式，不用写接口实现类，直接完成数据库操作，简单方便。使用 mapper 接口，采用的是面向接口编程的思想。sqlSession.getMapper 方法返回的是代理类，Mybatis是通过JDK代理实现的 mapper 接口代理。
+
+调用session.getMapper方法之后的运行时序图：
+
+![](.\image\Mapper代理.png)
+
+1. 在调用sqlSession.getMapper之后，会去Configuration对象中获取Mapper对象，（在项目启动的时候就会把Mapper接口加载并解析存储到Configuration对象）
+2. 通过Configuration对象中的MapperRegistry对象属性，继续调用getMapper方法
+3. 根据type类型，从MapperRegistry对象中的knownMappers获取到当前类型对应的代理工厂类，然后通过代理工厂类生成对应Mapper的代理类
+4. 最终获取到我们接口对应的代理类MapperProxy对象
+
+**Mapper代理源码：**
+
+![image-20221114130230325](.\image\Mapper代理2.png)
+
+#### MapperProxy
+
+RoleMapper接口代理类MapperProxy对象，而MapperProxy可以看到实现了InvocationHandler，使用的就是JDK动态代理
+
+![](.\image\roleMapper是代理对像.png)
+
+![](.\image\MapperProxy.png)
+
+#### SQL执行
+
+获取到的Mapper接口实际上被包装成为了代理对象，所以我们执行查询语句肯定是执行的代理对象 invok 方法。
+
+整个sql执行流程可以分为两大步骤：
+
+- 查找sql
+- 执行sql语句
+
+调用`roleMapper.getRole`方法是，会执行`MapperProxy#invok`方法，先判断是否调用Object中通用的方法；
+
+构造一个`MapperMethod`对象，这个对象封装了Mapper接口中对应的方法信息以及对应的sql语句信息；
+
+执行SQL，进入`mapperMethod.execute`方法，判断SQL类型`（INSERT, UPDATE, DELETE, SELECT）`，最终执行的是**SqlSession**的`delete、update、insert、select`等方法；
+
+![](.\image\MapperProxy Invok方法.png)
+
+### 3.3 **SqlSession下的四大对象**
+
+#### 3.3.1 SqlSession 执行过程
+
+【执行时序图】
+
+SqlSession的执行过程是通过**Executor**、**StatementHandler**、**ParameterHandler**和**ResultSetHandler**来完成数据库操作和结果返回的
+
+- Executor：代表执行器，由它调度StatementHandler、ParameterHandler、ResultSetHandler等来执行对应的SQL，其中StatementHandler是最重要的。
+- StatementHandler：作用是使用数据库的Statement（PreparedStatement）执行操作，它是四大对象的核心，起到承上启下的作用，许多重要的插件都是通过拦截它来实现的。
+- ParameterHandler：是用来处理SQL参数的。
+- ResultSetHandler：是进行数据集（ResultSet）的封装返回处理的，它非常的复杂，好在不常用。
+
+#### 3.3.1 Executor 执行器接口
+
+Executor是MyBatis执行接口，执行器的功能包括：
+
+- 基本功能：查、改(所有的增删操作都可以归结到改）。
+- 缓存维护：这里的缓存主要是为一级缓存服务，功能包括创建缓存Key、清理缓存、判断缓存是否存在。
+- 事物管理：提交、回滚、关闭、批处理刷新。
+
+##### **Executor接口**
+
+![](.\image\Executor接口结构图.png)
+
+- BaseExecutor：是一个抽象类，采用模板方法的设计模式。它实现了Executor接口，实现了执行器的基本功能。
+- SimpleExecutor：最简单的执行器，根据对应的SQL直接执行即可，不会做一些额外的操作；拼接完SQL之后，直接交给 StatementHandler 去执行。
+- BatchExecutor：批处理执行器，用于将多个SQL一次性输出到数据库，通过批量操作来优化性能。通常需要注意的是批量更新操作，由于内部有缓存的实现，使用完成后记得调用flushStatements来清除缓存。
+- ReuseExecutor ：可重用的执行器，重用的对象是Statement，也就是说该执行器会缓存同一个sql的Statement，省去Statement的重新创建，优化性能。内部的实现是通过一个HashMap来维护Statement对象的。由于当前Map只在该session中有效，所以使用完成后记得调用flushStatements来清除Map。调用实现的四个抽象方法时会调用 prepareStatement()
+- CachingExecutor：启用于二级缓存时的执行器；采用装饰器模式；代理一个 Executor 对象。执行 update 方法前判断是否清空二级缓存；执行 query 方法前先在二级缓存中查询，命中失败再通过被代理类查询
+
+##### **创建Executor**
+
+Executor对象会在MyBatis加载全局配置文件时初始化，它会根据配置的类型去确定需要创建哪一种Executor，我们可以在全局配置文件settings元素中配置Executor类型，setting属性中有个defaultExecutorType，可以配置如下3个参数SIMPLE、REUSE、BATCH，分别对应三种 Executor执行器，默认使用SimpleExecutor。而如果开启了二级缓存，则用CachingExecutor进行包装。
+
+![Executor创建过程](.\image\Executor创建过程.png)
+
+![](E:\idea\mybatis\help\image\Executor创建过程2.png)
+
+##### **Executor执行流程**
+
+以 roleMapper.getRole("111") 为例：
+
+![](.\image\Executor执行流程.png)
+
+- SqlSession会调用CachingExecutor执行器的query()方法，先从二级缓存获取数据，当无法从二级缓存获取数据时，则委托给BaseExecutor的子类进行操作
+- 如果没有使用二级缓存并且没有配置其它的执行器，那么MyBatis默认使用SimpleExecutor，调用父类BaseExecutor的query()方法
+- BaseExecutor先查询一级缓存，如过缓存没有数据，则调用queryFromDatabase()从数据库中获取数据，在queryFromDatabase()方法中调用 doQuery() 实现类的方法（SimpleExecutor#doQuery）
+- SimpleExecutor#doQuery会根据Configuration对象来构建**StatementHandler**，然后使用prepareStatement()方法对SQL编译和参数进行初始化，最后使用 **StatementHandler**的query()方法，把ResultHandler传递进去，执行查询后再通过ResultSetHandler封装结果并将结果返回
+
+#### 3.3.2 StatementHandler
+
+Executor 会把后续的工作交给 `StatementHandler` 继续执行
+
+StatementHandler 是数据库会话管理器，相当于JDBC中的Statement(PreparedStatement)，负责管理 Statement 对象与数据库进行交互。
+
+##### **StatementHandler接口**
+
+![](.\image\StatementHandler接口结构图.png)
+
+`StatementHandler` 有两个实现类 `BaseStatementHandler` 和 `RoutingStatementHandler` ，`RoutingStatementHandler` 采用装饰器模式，根据上下文来选择适配器生成相应的 `StatementHandler`。`BaseStatementHandler` 有三个实现类：`SimpleStatementHandler`、`PreparedStatementHandler`和`CallableStatementHandler`。
+
+- `RoutingStatementHandler`：`RoutingStatementHandler`的功能只是根据 StatementType 来创建一个代理，代理的就是对应Handler的三种实现类。
+- `BaseStatementHandler`：是一个抽象类，它实现了`StatementHandler`接口，用于简化`StatementHandler`接口实现的难度，采用适配器设计模式，它主要有如下三个实现类
+- `SimpleStatementHandler`： 最简单的`StatementHandler`，处理不带参数运行的SQL，对应JDBC的`Statement`
+- `PreparedStatementHandler`：预处理`Statement`，处理带参数运行的SQL， 对应JDBC的`PreparedStatement`
+- `CallableStatementHandler`：存储过程的`Statement`，处理存储过程SQL，对应JDBC的 `CallableStatement`
+
+##### 创建StatementHandler
+
+上述`Executor`执行到`SimpleExecutor#doQuery`方法，`StatementHandler`的初始化过程如下（它也是在`Configuration`对象中完成的）：
+
+![](.\image\StatementHandler创建过程.png)
+
+![](.\image\StatementHandler创建过程2.png)
+
+MyBatis 会根据 SQL 语句的类型进行对应`StatementHandler`的创建，以预处理`PreparedStatementHandler`为例来
+
+![](.\image\StatementHandler创建过程3.png)
+
+创建`StatementHandler`的同时，也创建了`parameterHandler、resultSetHandler`
+
+##### StatementHandler执行流程
+
+以 roleMapper.getRole("111") 为例，接上图：
+
+![](.\image\StatementHandler执行流程.png)
 
 
 
+#### 3.3.3 ParameterHandler对象
+
+`ParameterHandler`是参数处理器，它的作用是完成对预编译的参数的设置（`PreparedStatementSQL`语句参数动态赋值），`ParameterHandler`接口有两个方法：
+
+```
+public interface ParameterHandler {
+  Object getParameterObject(); // 用于获取参数对象
+  void setParameters(PreparedStatement ps) throws SQLException; // 用于设置预编译SQL的参数
+}
+```
+
+##### ParameterHandler对象的创建
+
+`ParameterHandler`参数处理器对象是在创建`StatementHandler`对象的同时被创建的，同样也是由`Configuration`对象负责创建，`ParameterHandler`只有一个实现类 `DefaultParameterHandler`。
+
+![](.\image\ParameterHandler创建.png)
+
+ 可以发现在创建`ParameterHandler`对象时，传入了三个参数`mappedStatement``parameterObject``boundSql`。
+
+- `mappedStatement`保存了一个映射器节点`<select|update|delete|insert>`中的内容，包括配置的`sql、sql Id、parameterType、resultType、resultMap`等配置内容
+- `parameterObject`入参
+- `boundSql`表示要实际执行的sql语句，它是通过`SqlSource`对象生成，根据传入的参数对象，`SqlSource`常用的实现类是 `DynamicSqlSource`
+
+##### ParameterHandler解析sql
+
+![](.\image\ParameterHandler解析入参.png)
+
+##### parameterObject入参对象
+
+在**SQL执行**过程中，执行`SqlSession`的`delete、update、insert、select`方法前，convertArgsToSqlCommandParam会预先处理roleMapper.getRole("111")入参。如果只有一个入参，直接返回，如果有多个入参，转为map类型。
+
+parameterObject在生成parameterHandler对象时传入；
+
+![](.\image\convertArgsToSqlCommandParam处理入参.png)
+
+![](.\image\convertArgsToSqlCommandParam处理入参2.png)
+
+##### 参数设置过程
+
+略 ，参见源码 `org.apache.ibatis.scripting.defaults.DefaultParameterHandler#setParameters`
+
+#### 3.3.4 ResultSetHandler
 
 
 
+## 4、插件、拦截器
 
 
 
-
-
-
+## 5、Spring + mybatis

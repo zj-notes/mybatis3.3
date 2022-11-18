@@ -41,7 +41,6 @@ public abstract class BaseStatementHandler implements StatementHandler {
     this.executor = executor;
     this.mappedStatement = mappedStatement;
     this.rowBounds = rowBounds;
-
     this.typeHandlerRegistry = configuration.getTypeHandlerRegistry();
     this.objectFactory = configuration.getObjectFactory();
 
@@ -49,9 +48,7 @@ public abstract class BaseStatementHandler implements StatementHandler {
       generateKeys(parameterObject);
       boundSql = mappedStatement.getBoundSql(parameterObject);
     }
-
     this.boundSql = boundSql;
-
     // 生成 parameterHandler，只有一个实现类 DefaultParameterHandler
     this.parameterHandler = configuration.newParameterHandler(mappedStatement, parameterObject, boundSql);
     // 生成 resultSetHandler，只有一个实现了 DefaultResultSetHandler

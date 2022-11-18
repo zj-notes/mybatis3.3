@@ -16,8 +16,8 @@ import java.util.*;
 
 public class MapperMethod {
 
-    private final SqlCommand command;
-    private final MethodSignature method;
+    private final SqlCommand command;  // 记录SQL语句Id，SQL类型
+    private final MethodSignature method; // 记录mapper接口中方法、出入参类型等信息
 
     public MapperMethod(Class<?> mapperInterface, Method method, Configuration config) {
         // SQL命令
@@ -26,6 +26,7 @@ public class MapperMethod {
     }
 
     // 执行
+    // 这先判断CRUD的类型，根据类型去选择到底执行了sqlSession中的哪个方法
     public Object execute(SqlSession sqlSession, Object[] args) {
         Object result;
         // 可以看到执行时就是4种情况，insert|update|delete|select，分别调用SqlSession的4大类方法
