@@ -156,12 +156,12 @@ public class DefaultResultSetHandler implements ResultSetHandler {
     ErrorContext.instance().activity("handling results").object(mappedStatement.getId());
     
     final List<Object> multipleResults = new ArrayList<Object>();
-
     int resultSetCount = 0;
+    // 获取第一个ResultSet对象
     ResultSetWrapper rsw = getFirstResultSet(stmt);
-
+    // 获取Mybatis初始化是解析映射器配置文件中的resultMap节点生成的ResultMap对象
     List<ResultMap> resultMaps = mappedStatement.getResultMaps();
-    //一般resultMaps里只有一个元素
+    // 结果映射的大小，这一一般只有一个
     int resultMapCount = resultMaps.size();
     validateResultMapsCount(rsw, resultMapCount);
     while (rsw != null && resultMapCount > resultSetCount) {
@@ -171,7 +171,7 @@ public class DefaultResultSetHandler implements ResultSetHandler {
       cleanUpAfterHandlingResultSet();
       resultSetCount++;
     }
-
+    // 处理多结果集
     String[] resultSets = mappedStatement.getResulSets();
     if (resultSets != null) {
       while (rsw != null && resultSetCount < resultSets.length) {

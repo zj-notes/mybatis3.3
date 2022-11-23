@@ -195,7 +195,7 @@ RoleMapper接口代理类MapperProxy对象，而MapperProxy可以看到实现了
 
 #### 3.3.1 SqlSession 执行过程
 
-【执行时序图】
+![](.\image\Mybatis执行过程.png)
 
 SqlSession的执行过程是通过**Executor**、**StatementHandler**、**ParameterHandler**和**ResultSetHandler**来完成数据库操作和结果返回的
 
@@ -298,7 +298,7 @@ public interface ParameterHandler {
 
 ![](.\image\ParameterHandler创建.png)
 
- 可以发现在创建`ParameterHandler`对象时，传入了三个参数`mappedStatement``parameterObject``boundSql`。
+ 可以发现在创建`ParameterHandler`对象时，传入了三个参数`mappedStatement、parameterObject、boundSql`。
 
 - `mappedStatement`保存了一个映射器节点`<select|update|delete|insert>`中的内容，包括配置的`sql、sql Id、parameterType、resultType、resultMap`等配置内容
 - `parameterObject`入参
@@ -320,15 +320,40 @@ parameterObject在生成parameterHandler对象时传入；
 
 ##### 参数设置过程
 
-略 ，参见源码 `org.apache.ibatis.scripting.defaults.DefaultParameterHandler#setParameters`
+略 ，参见源码`org.apache.ibatis.scripting.defaults.DefaultParameterHandler#setParameters`
 
 #### 3.3.4 ResultSetHandler
 
+`ResultSetHandler`是结果处理器，它是用来组装结果集的。`ResultSetHandler`是一个接口，它只有一个默认的实现类，像是`ParameterHandler` 一样，它的默认实现类是`DefaultResultSetHandler`
 
+```java
+public interface ResultSetHandler {
+  // 处理结果集
+  <E> List<E> handleResultSets(Statement stmt) throws SQLException;
+  // 处理批量游标结果集
+  void handleOutputParameters(CallableStatement cs) throws SQLException;
+  // 处理存储过程结果集
+  void handleOutputParameters(CallableStatement cs) throws SQLException;
+}
+```
 
+##### ResultSetHandler对象的创建
 
+`ResultSetHandler`结果集处理器对象是在创建`StatementHandler`对象的同时被创建的，同样也是由`Configuration`对象负责创建。
 
+![](.\image\ResultSetHandler创建.png)
 
+##### ResultSetHandler 解析结果集
+
+`接StatementHandler执行流程，SimpleExecutor#doQuery方法最终返回(StatementHandler)handler.query(stmt)，query方法返回resultSetHandler.<E> handleResultSets(ps)`
+
+![](.\image\ResultSetHandler执行流程.png)
+
+![](.\image\ResultSetHandler处理结果集.png)
+
+##### 结果集处理过程
+
+略，参见源码`org.apache.ibatis.executor.resultset.DefaultResultSetHandler#handleResultSets`
 
 ## 4、插件、拦截器
 

@@ -43,7 +43,7 @@ public class Main {
             // build 返回 DefaultSqlSessionFactory 对象
             sqlSessionFactory = (DefaultSqlSessionFactory) new SqlSessionFactoryBuilder().build(inputStream);
 
-            // 就可以通过 SqlSessionFactory 去获取 SqlSession 对象(DefaultSqlSession)
+            // 就可以通过 SqlSessionFactory 去获取 SqlSession 对象(DefaultSqlSession)，同时初始化Executor
             sqlSession = (DefaultSqlSession) sqlSessionFactory.openSession();
 
             // 通过 MapperProxy 动态代理对象，也就是说执行自己写的dao里面的方法的时候，其实是对应的mapperProxy在代理
