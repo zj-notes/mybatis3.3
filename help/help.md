@@ -326,8 +326,225 @@ parameterObject在生成parameterHandler对象时传入；
 
 
 
+
+
+
+
 ## 4、插件、拦截器
 
+`Executor`的创建过程中，`newExecutor`方法在创建好`Executor`实例后，紧接着通过拦截器链`interceptorChain` 为 `Executor`实例植入代理逻辑
 
+```java
+public Executor newExecutor(Transaction transaction, ExecutorType executorType) {
+    ...
+    executor = (Executor) interceptorChain.pluginAll(executor);
+    return executor;
+}
+
+// 拦截器链
+public class InterceptorChain {
+    // 内部就是一个拦截器的List
+    private final List<Interceptor> interceptors = new ArrayList<Interceptor>();
+    public Object pluginAll(Object target) {
+        // 循环调用每个Interceptor.plugin方法
+        for (Interceptor interceptor : interceptors) {
+	       // plugin 方法是由具体的插件类实现
+            target = interceptor.plugin(target);
+        }
+        return target;
+    }
+    /** 添加插件实例到 interceptors 集合中 */
+    public void addInterceptor(Interceptor interceptor) {
+        interceptors.add(interceptor);
+    }
+    /** 获取插件列表 */
+    public List<Interceptor> getInterceptors() {
+        return Collections.unmodifiableList(interceptors);
+    }
+}
+```
+
+plugin方法是由具体的插件类实现，该方法实现代码一般比较固定
+
+```java
+// ExecutorInterceptor类
+public Object plugin(Object target) {
+    return Plugin.wrap(target, this);
+}
+```
+
+### 4.1 InterceptorChain拦截器链
+
+InterceptorChain中interceptors变量是全局配置文件中 <plugins></plugins>标签plugin集合，上面的for循环代表了只要是插件，都会以**责任链**的方式逐一执行，所谓插件，其实就类似于拦截器。pluginAll 方法会调用具体插件的 plugin 方法植入相应的插件逻辑。如果有多个插件，则会多次调用 plugin 方法（plugin 方法是由具体的插件类实现），最终生成一个层层嵌套的代理类，当 Executor 的某个方法被调用的时候，插件逻辑会先行执行，执行顺序由外而内`plugin3 → plugin2 → Plugin1 → Executor`
+
+![](.\image\Plugin层次嵌套.png)
+
+### 4.2 Plugin类
+
+Plugin类的作用是根据插件类@Intercepts注解配置，生成目标组件的代理对象，并根据注解配置判断是否需要拦截目标方法：
+
+**wrap方法生成代理类**
+
+```java
+// Plugin 类
+public static Object wrap(Object target, Interceptor interceptor) {
+	// 取得签名Map, 就是获取Interceptor实现类上面的注解，要拦截的是哪个类（Executor，ParameterHandler，ResultSetHandler，StatementHandler）的哪个方法
+	Map<Class<?>, Set<Method>> signatureMap = getSignatureMap(interceptor);
+	// 取得要改变行为的类(ParameterHandler|ResultSetHandler|StatementHandler|Executor)
+	Class<?> type = target.getClass();
+	// 取目标类的接口
+	Class<?>[] interfaces = getAllInterfaces(type, signatureMap);
+	// 产生代理
+	if (interfaces.length > 0) {
+		return Proxy.newProxyInstance(
+				type.getClassLoader(),
+				interfaces,
+				new Plugin(target, interceptor, signatureMap));
+	}
+	return target;
+}
+```
+
+**@Intercepts注解**
+
+```java
+// @Intercepts注解用来定义插件类型，要拦截的方法已经方法的参数(根据参数类型获取目标方法)
+@Intercepts({@Signature( // 要拦截的类型
+        type = Executor.class,	// Executor 类型的插件
+        method = "update",	// 拦截update方法
+        args = {MappedStatement.class, Object.class} // update方法的参数
+), @Signature(
+        type = Executor.class,
+        method = "query",	// 拦截update方法
+        args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class} // 四个参数的update方法
+), @Signature(
+        type = Executor.class,
+        method = "query",  // 拦截update方法
+        args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class}  // 六个参数的update方法
+)})
+```
+
+**invoke执行插件逻辑**
+
+```java
+@Override
+public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    try {
+        // 获取被拦截方法列表，比如： signatureMap.get(Executor.class)，可能返回 [query, update, commit]
+        Set<Method> methods = signatureMap.get(method.getDeclaringClass());
+        // 检测方法列表是否包含被拦截的方法
+        if (methods != null && methods.contains(method)) {
+            // 调用Interceptor.intercept，执行插件逻辑
+            return interceptor.intercept(new Invocation(target, method, args));
+        }
+        // 未被拦截的方法，执行原逻辑
+        return method.invoke(target, args);
+    } catch (Exception e) {
+        throw ExceptionUtil.unwrapThrowable(e);
+    }
+}
+```
+
+### 4.3 动态代理
+
+`MyBatis`插件是基于JDK动态代理实现的。`Plugin`实现了`InvocationHandler`接口，拦截类型为`Executor，ParameterHandler，ResultSetHandler，StatementHandler`四个中的一个，
+
+```java
+// 生成代理对象，Plugin实现了InvocationHandler接口
+return Proxy.newProxyInstance(
+        type.getClassLoader(),
+        interfaces,
+        new Plugin(target, interceptor, signatureMap));
+```
+
+### 4.4 插件类型
+
+Mybatis中只是针对四个组件提供了扩展机制，`Executor，ParameterHandler，ResultSetHandler，StatementHandler`
+
+```java
+// Executor类型
+public Executor newExecutor(Transaction transaction, ExecutorType executorType) {
+    // ....
+    executor = (Executor) interceptorChain.pluginAll(executor);
+    return executor;
+}
+
+// StatementHandler类型
+public StatementHandler newStatementHandler(Executor executor, MappedStatement mappedStatement, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) {
+    // 创建路由选择语句处理器
+    StatementHandler statementHandler = new RoutingStatementHandler(executor, mappedStatement, parameterObject, rowBounds, resultHandler, boundSql);
+    // 插件在这里插入
+    statementHandler = (StatementHandler) interceptorChain.pluginAll(statementHandler);
+    return statementHandler;
+}
+
+// ParameterHandler类型
+public ParameterHandler newParameterHandler(MappedStatement mappedStatement, Object parameterObject, BoundSql boundSql) {
+    // 创建ParameterHandler
+    ParameterHandler parameterHandler = mappedStatement.getLang().createParameterHandler(mappedStatement, parameterObject, boundSql);
+    // 插件在这里插入
+    parameterHandler = (ParameterHandler) interceptorChain.pluginAll(parameterHandler);
+    return parameterHandler;
+}
+
+// ResultSetHandler类型
+public ResultSetHandler newResultSetHandler(Executor executor, MappedStatement mappedStatement, RowBounds rowBounds, ParameterHandler parameterHandler, ResultHandler resultHandler, BoundSql boundSql) {
+    // 创建DefaultResultSetHandler
+    ResultSetHandler resultSetHandler = new DefaultResultSetHandler(executor, mappedStatement, parameterHandler, resultHandler, boundSql, rowBounds);
+    // 插件在这里插入
+    resultSetHandler = (ResultSetHandler) interceptorChain.pluginAll(resultSetHandler);
+    return resultSetHandler;
+}
+```
+
+### 4.5 自定义插件
+
+**使用步骤**
+
+1. 创建一个类，实现拦截器接口`Interceptor`
+2. 类上配置`@Intercepts`注解，指定对哪个对象，哪个方法进行扩展
+3. 在`Mybatis`配置文件中，配置`plugins`标签，加入自定义的插件
+
+**应用**
+
+1. com.noahgroup.framework.common.mybatis.SqlLogInterceptor，我们公司用的答应sql日志插件
+2. Mybatis-PageHelper 开源分页插件
+
+插件参考文档 
+
+[Mybatis插件原理]: https://zhuanlan.zhihu.com/p/163863114?utm_id=0&amp;from_wecom=1
 
 ## 5、Spring + mybatis
+
+Mybatis的目的是：**使得程序员能够以调用方法的方式执行某个指定的sql，将执行sql的底层逻辑进行了封装**
+
+```java
+// 使用mybatis，以下才是我们关注的重点，当调用SqlSession的getMapper方法时，会对传入的接口生成一个代理对象，而程序要真正用到的就是这个代理对象，在调用代理对象的方法时，Mybatis会取出该方法所对应的sql语句，然后利用JDBC去执行sql语句，最终得到结果
+RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+TblSysRole role = roleMapper.getRole("111");
+```
+
+Spring整合Mybatis时，重点要关注的就是这个代理对象。因为整合的目的就是：**把某个Mapper的代理对象作为一个bean放入Spring容器中，使得能够像使用一个普通bean一样去使用这个代理对象，比如能被@Autowire自动注入**
+
+```java
+@Autowired
+private RoleMapper roleMapper;
+TblSysRole role = roleMapper.getRole("111");
+```
+
+1. org.mybatis.spring.SqlSessionFactoryBean：实现了FactoryBean接口，用于生成其SqlSessionFactory
+2. org.mybatis.spring.mapper.MapperFactoryBean<T>：实现了 FactoryBean 接口，(RoleMapper) context.getBean("mapperFactoryBean") 会调用 MapperFactoryBean 的 getObject() 方法，getObject()返回 getSqlSession().getMapper(this.mapperInterface)，拿到具体的 Mapper
+3. MybatisAutoConfiguration：springboot mybatis自动配置类
+
+## 6、参考文档
+
+mybatis-3.3.0源码阅读：
+
+[JDBC简介]: https://www.cnblogs.com/noteless/category/1382609.html
+[MyBatis中文网]: https://mybatis.net.cn/
+[MyBatis SQL是如何执行的]: https://blog.csdn.net/t4i2b10X4c22nF6A/article/details/104765156
+[SqlSession下的四大对象]: http://t.zoukankan.com/tanghaorong-p-14094521.html
+[Mybatis插件原理]: https://zhuanlan.zhihu.com/p/163863114
+[Spring整合Mybatis原理]: https://www.cnblogs.com/raitorei/articles/12880617.html
+[MyBatis源码阅读网]: http://coderead.cn/p/mybatis/doc/index.md
+

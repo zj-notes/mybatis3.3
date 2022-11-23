@@ -1,18 +1,3 @@
-/*
- *    Copyright 2009-2012 the original author or authors.
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
 package org.apache.ibatis.plugin;
 
 import java.lang.reflect.InvocationHandler;
@@ -24,10 +9,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.ibatis.reflection.ExceptionUtil;
-
-/**
- * @author Clinton Begin
- */
 
 /**
  * 插件,用的代理模式
@@ -64,21 +45,21 @@ public class Plugin implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         try {
-            //看看如何拦截
+            // 获取被拦截方法列表，比如： signatureMap.get(Executor.class)，可能返回 [query, update, commit]
             Set<Method> methods = signatureMap.get(method.getDeclaringClass());
-            //看哪些方法需要拦截
+            // 检测方法列表是否包含被拦截的方法
             if (methods != null && methods.contains(method)) {
-                //调用Interceptor.intercept，也即插入了我们自己的逻辑
+                // 调用Interceptor.intercept，执行插件逻辑
                 return interceptor.intercept(new Invocation(target, method, args));
             }
-            //最后还是执行原来逻辑
+            // 未被拦截的方法，执行原逻辑
             return method.invoke(target, args);
         } catch (Exception e) {
             throw ExceptionUtil.unwrapThrowable(e);
         }
     }
 
-    //取得签名Map, 就是获取Interceptor实现类上面的注解，要拦截的是那个类（Executor，ParameterHandler，ResultSetHandler，StatementHandler）的那个方法
+    // 取得签名Map, 就是获取Interceptor实现类上面的注解，要拦截的是那个类（Executor，ParameterHandler，ResultSetHandler，StatementHandler）的那个方法
     private static Map<Class<?>, Set<Method>> getSignatureMap(Interceptor interceptor) {
         //取Intercepts注解，例子可参见ExamplePlugin.java
         Intercepts interceptsAnnotation = interceptor.getClass().getAnnotation(Intercepts.class);
@@ -107,7 +88,7 @@ public class Plugin implements InvocationHandler {
         return signatureMap;
     }
 
-    //取得接口
+    // 取目标类接口
     private static Class<?>[] getAllInterfaces(Class<?> type, Map<Class<?>, Set<Method>> signatureMap) {
         Set<Class<?>> interfaces = new HashSet<Class<?>>();
         while (type != null) {

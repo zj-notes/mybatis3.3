@@ -13,15 +13,16 @@ public class InterceptorChain {
     public Object pluginAll(Object target) {
         // 循环调用每个Interceptor.plugin方法
         for (Interceptor interceptor : interceptors) {
+            // plugin 方法是由具体的插件类实现
             target = interceptor.plugin(target);
         }
         return target;
     }
-
+    /** 添加插件实例到 interceptors 集合中 */
     public void addInterceptor(Interceptor interceptor) {
         interceptors.add(interceptor);
     }
-
+    /** 获取插件列表 */
     public List<Interceptor> getInterceptors() {
         return Collections.unmodifiableList(interceptors);
     }
