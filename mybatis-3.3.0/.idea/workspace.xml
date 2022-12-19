@@ -19,38 +19,14 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/EatInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/Interceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/InterceptorChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/Invocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/MybatisPlugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/Plugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/SpeakInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/jdbc/JdbcTest3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/demo/main/ParameterHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/po/TblSysRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/po/TblSysRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/binding/MapperMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/binding/MapperMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/executor/statement/BaseStatementHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/executor/statement/BaseStatementHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/executor/statement/RoutingStatementHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/executor/statement/RoutingStatementHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/mapping/MappedStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/mapping/MappedStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/mapping/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/Signature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/plugin/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/demo/interceptor/mybtaisPlugins/Intercepts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/scripting/defaults/DefaultParameterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/scripting/defaults/DefaultParameterHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/session/defaults/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/session/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/type/TypeHandlerRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ibatis/type/TypeHandlerRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../help/help.md" beforeDir="false" afterPath="$PROJECT_DIR$/../help/help.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +46,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitToolBoxStore">
@@ -99,12 +81,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../help" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Mybatis-PageHelper-5.2.0" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37241378" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -120,7 +102,7 @@
       <recent name="E:\idea\mybatis\mybatis-3.5.5\src\main\java\com\demo\mapper" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.JdbcTest">
+  <component name="RunManager" selected="Application.JDKProxy">
     <configuration name="JDKProxy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.demo.interceptor.jdkproxy5.JDKProxy" />
       <module name="mybatis-3.3.0" />
@@ -188,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.JdbcTest" />
         <item itemvalue="Application.JDKProxy" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.JdbcTest" />
         <item itemvalue="Application.ParameterHandlerTest" />
         <item itemvalue="Application.MybatisPlugin" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +203,13 @@
       <workItem from="1667784659131" duration="9517000" />
       <workItem from="1667809767142" duration="22541000" />
       <workItem from="1667988892488" duration="5760000" />
-      <workItem from="1668074849821" duration="3140000" />
+      <workItem from="1668074849821" duration="3383000" />
+      <workItem from="1668389418731" duration="20470000" />
+      <workItem from="1668578165252" duration="3622000" />
+      <workItem from="1668666801623" duration="3787000" />
+      <workItem from="1668761223383" duration="5118000" />
+      <workItem from="1669168841662" duration="18232000" />
+      <workItem from="1669359977760" duration="106000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1665640361445</created>
@@ -244,7 +232,28 @@
       <option name="project" value="LOCAL" />
       <updated>1665641875771</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="help">
+      <created>1668766255158</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668766255158</updated>
+    </task>
+    <task id="LOCAL-00005" summary="plugin">
+      <created>1669184931454</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669184931454</updated>
+    </task>
+    <task id="LOCAL-00006" summary="plugin">
+      <created>1669195399683</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669195399683</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +270,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -277,7 +286,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="111" />
     <MESSAGE value="112" />
-    <option name="LAST_COMMIT_MESSAGE" value="112" />
+    <MESSAGE value="help" />
+    <MESSAGE value="plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="plugin" />
   </component>
   <component name="WindowStateProjectService">
     <state x="752" y="383" key="#Scopes" timestamp="1665639307717">
@@ -300,62 +311,62 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="744" height="587" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1667890354612" />
-    <state x="740" y="218" key="FileChooserDialogImpl" timestamp="1667990276830">
+    <state x="740" y="218" key="FileChooserDialogImpl" timestamp="1669168937655">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="218" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1667990276830" />
-    <state width="1877" height="232" key="GridCell.Tab.0.bottom" timestamp="1668063049894">
+    <state x="740" y="218" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1669168937655" />
+    <state width="1877" height="196" key="GridCell.Tab.0.bottom" timestamp="1669195410119">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="232" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1668063049894" />
-    <state width="1877" height="232" key="GridCell.Tab.0.center" timestamp="1668063049894">
+    <state width="1877" height="196" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1669195410119" />
+    <state width="1877" height="196" key="GridCell.Tab.0.center" timestamp="1669195410119">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="232" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1668063049894" />
-    <state width="1877" height="232" key="GridCell.Tab.0.left" timestamp="1668063049894">
+    <state width="1877" height="196" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1669195410119" />
+    <state width="1877" height="196" key="GridCell.Tab.0.left" timestamp="1669195410119">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="232" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1668063049894" />
-    <state width="1877" height="232" key="GridCell.Tab.0.right" timestamp="1668063049894">
+    <state width="1877" height="196" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1669195410119" />
+    <state width="1877" height="196" key="GridCell.Tab.0.right" timestamp="1669195410119">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="232" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1668063049894" />
-    <state width="1877" height="232" key="GridCell.Tab.1.bottom" timestamp="1668063049894">
+    <state width="1877" height="196" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1669195410119" />
+    <state width="1877" height="196" key="GridCell.Tab.1.bottom" timestamp="1669195410118">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="232" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1668063049894" />
-    <state width="1877" height="232" key="GridCell.Tab.1.center" timestamp="1668063049894">
+    <state width="1877" height="196" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1669195410118" />
+    <state width="1877" height="196" key="GridCell.Tab.1.center" timestamp="1669195410118">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="232" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1668063049894" />
-    <state width="1877" height="232" key="GridCell.Tab.1.left" timestamp="1668063049893">
+    <state width="1877" height="196" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1669195410118" />
+    <state width="1877" height="196" key="GridCell.Tab.1.left" timestamp="1669195410118">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="232" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1668063049893" />
-    <state width="1877" height="232" key="GridCell.Tab.1.right" timestamp="1668063049894">
+    <state width="1877" height="196" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1669195410118" />
+    <state width="1877" height="196" key="GridCell.Tab.1.right" timestamp="1669195410118">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="232" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1668063049894" />
+    <state width="1877" height="196" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1669195410118" />
     <state x="540" y="260" key="IDE.errors.dialog" timestamp="1665641896511">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="540" y="260" key="IDE.errors.dialog/0.0.1920.1050@0.0.1920.1050" timestamp="1665641896511" />
-    <state x="625" y="229" key="NewModule_or_Project.wizard" timestamp="1667990287829">
+    <state x="625" y="229" key="NewModule_or_Project.wizard" timestamp="1669168941759">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="625" y="229" key="NewModule_or_Project.wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1667990287829" />
-    <state x="466" y="288" width="1040" height="708" key="SettingsEditor" timestamp="1667990291772">
+    <state x="625" y="229" key="NewModule_or_Project.wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1669168941759" />
+    <state x="466" y="288" width="1040" height="708" key="SettingsEditor" timestamp="1669172471094">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="466" y="288" width="1040" height="708" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1667990291772" />
-    <state width="506" height="446" key="SwitcherDM" timestamp="1667876712205">
+    <state x="466" y="288" width="1040" height="708" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1669172471094" />
+    <state width="506" height="446" key="SwitcherDM" timestamp="1669190198352">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="506" height="446" key="SwitcherDM/0.0.1920.1050@0.0.1920.1050" timestamp="1667876712205" />
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1666937858101">
+    <state width="506" height="446" key="SwitcherDM/0.0.1920.1050@0.0.1920.1050" timestamp="1669190198352" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1669195402049">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1666937858101" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1669195402049" />
     <state width="968" height="533" key="XDebugger.FullValuePopup" timestamp="1667800644467">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -380,39 +391,24 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="319" y="361" key="new project wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1667990270373" />
-    <state x="616" y="243" key="run.anything.popup" timestamp="1667888728282">
+    <state x="616" y="243" key="run.anything.popup" timestamp="1669190328722">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1667888728282" />
-    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup" timestamp="1667889225498">
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1669190328722" />
+    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup" timestamp="1669190486493">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1667889225498" />
+    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1669190486493" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/apache/ibatis/executor/SimpleExecutor.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/apache/ibatis/executor/SimpleExecutor.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/apache/ibatis/scripting/defaults/DefaultParameterHandler.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="53" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/demo/main/Main.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="resolveTypeHandler(parameter, jdbcType)" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

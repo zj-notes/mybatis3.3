@@ -19,6 +19,7 @@
       <module name="mybatis-parent" target="1.8" />
       <module name="mybatis-spring" target="1.8" />
       <module name="mybatis-spring-demo" target="1.8" />
+      <module name="pagehelper" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
