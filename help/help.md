@@ -1,3 +1,5 @@
+# #MyBatis 执行流程学习分享
+
 ## 1、JDBC
 
 ### JDBC操作数据库
@@ -100,7 +102,7 @@ MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过�
 
 [参考文档]: https://mybatis.net.cn/	"MyBatis中文网"
 
-与其他比较标准的 ORM 框架（比如 Hibernate ）不同， mybatis 并没有将 [java](https://www.w3cschool.cn/java/) 对象与数据库关联起来，而是将 [java](https://www.w3cschool.cn/java/) 方法与 [sql](https://www.w3cschool.cn/sql/) 语句关联起来，自己写 [sql](https://www.w3cschool.cn/sql/) 语句的好处是，可以根据自己的需求，写出最优的 [sql](https://www.w3cschool.cn/sql/) 语句。灵活性高。但是，由于是自己写 [sql](https://www.w3cschool.cn/sql/) 语句，导致平台可移植性不高。[MySQL](https://www.w3cschool.cn/mysql/) 语句和 [Oracle](https://www.w3cschool.cn/oraclejc/) 语句不同。
+与其他比较标准的 ORM 框架（比如 Hibernate ）不同， mybatis 并没有将 [java](https://www.w3cschool.cn/java/) 对象与数据库关联起来，而是将 [java](https://www.w3cschool.cn/java/) 方法与 [sql](https://www.w3cschool.cn/sql/) 语句关联起来，自己写 [sql](https://www.w3cschool.cn/sql/) 语句的好处是，可以根据自己的需求，写出最优的 [sql](https://www.w3cschool.cn/sql/) 语句。灵活性高。但是，由于是自己写 [sql](https://www.w3cschool.cn/sql/) 语句，导致平台可移植性不高。
 
 **MyBatis操作数据库**
 
@@ -162,7 +164,7 @@ System.out.println(role.toString());
 3. 根据type类型，从MapperRegistry对象中的knownMappers获取到当前类型对应的代理工厂类，然后通过代理工厂类生成对应Mapper的代理类
 4. 最终获取到我们接口对应的代理类MapperProxy对象
 
-**Mapper代理源码：**
+**Mapper代理源码**
 
 ![image-20221114130230325](.\image\Mapper代理2.png)
 
@@ -267,7 +269,7 @@ StatementHandler 是数据库会话管理器，相当于JDBC中的Statement(Prep
 
 ![](.\image\StatementHandler创建过程2.png)
 
-MyBatis 会根据 SQL 语句的类型进行对应`StatementHandler`的创建，以预处理`PreparedStatementHandler`为例来
+MyBatis 会根据 SQL 语句的类型进行对应`StatementHandler`的创建，以预处理`PreparedStatementHandler`为例：
 
 ![](.\image\StatementHandler创建过程3.png)
 
@@ -310,9 +312,7 @@ public interface ParameterHandler {
 
 ##### parameterObject入参对象
 
-在**SQL执行**过程中，执行`SqlSession`的`delete、update、insert、select`方法前，convertArgsToSqlCommandParam会预先处理roleMapper.getRole("111")入参。如果只有一个入参，直接返回，如果有多个入参，转为map类型。
-
-parameterObject在生成parameterHandler对象时传入；
+parameterObject在生成parameterHandler对象时传入；在SQL执行过程中，执行`SqlSession`的`delete、update、insert、select`方法前，convertArgsToSqlCommandParam会预先处理roleMapper.getRole("111")入参。如果只有一个入参，直接返回，如果有多个入参，转为map类型。
 
 ![](.\image\convertArgsToSqlCommandParam处理入参.png)
 
@@ -345,7 +345,7 @@ public interface ResultSetHandler {
 
 ##### ResultSetHandler 解析结果集
 
-`接StatementHandler执行流程，SimpleExecutor#doQuery方法最终返回(StatementHandler)handler.query(stmt)，query方法返回resultSetHandler.<E> handleResultSets(ps)`
+接`StatementHandler执行流程，SimpleExecutor#doQuery方法最终返回(StatementHandler)handler.query(stmt)，query方法返回resultSetHandler.<E> handleResultSets(ps)`
 
 ![](.\image\ResultSetHandler执行流程.png)
 
@@ -537,7 +537,7 @@ public ResultSetHandler newResultSetHandler(Executor executor, MappedStatement m
 
 插件参考文档 
 
-[Mybatis插件原理]: https://zhuanlan.zhihu.com/p/163863114?utm_id=0&amp;from_wecom=1
+[Mybatis插件原理]: https://zhuanlan.zhihu.com/p/163863114
 
 ## 5、Spring + mybatis
 
