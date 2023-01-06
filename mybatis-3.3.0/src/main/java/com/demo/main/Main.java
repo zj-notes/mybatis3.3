@@ -50,7 +50,7 @@ public class Main {
             RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
 
 //            roleMapper.insertRole(new Role());
-            TblSysRole role = roleMapper.getRole("111");     // 是代理对象
+            TblSysRole role = roleMapper.getRole("111");     // roleMapper 是代理对象
 
             System.out.println("result:" + role.getId() + ":" + role.getRoleName() + ":" + role.getRoleCode());
             System.out.println("================================================================");

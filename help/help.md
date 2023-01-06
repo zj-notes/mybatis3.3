@@ -563,8 +563,7 @@ TblSysRole role = roleMapper.getRole("111");
 
 ## 6、参考文档
 
-mybatis-3.3.0源码阅读：
-
+[mybatis-3.3.0源码阅读]: http://10.1.32.29/mybatis/mybatis.git
 [JDBC简介]: https://www.cnblogs.com/noteless/category/1382609.html
 [MyBatis中文网]: https://mybatis.net.cn/
 [MyBatis SQL是如何执行的]: https://blog.csdn.net/t4i2b10X4c22nF6A/article/details/104765156
