@@ -25,9 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../help/help.md" beforeDir="false" afterPath="$PROJECT_DIR$/../help/help.md" afterDir="false" />
-    </list>
+    <list default="true" id="6e6076af-a963-4aa1-8030-addeeb48a607" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,10 +81,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Mybatis-PageHelper-5.2.0" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37241378" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -210,6 +208,9 @@
       <workItem from="1668761223383" duration="5118000" />
       <workItem from="1669168841662" duration="18232000" />
       <workItem from="1669359977760" duration="106000" />
+      <workItem from="1671420939284" duration="1380000" />
+      <workItem from="1671760058500" duration="3419000" />
+      <workItem from="1672971327692" duration="919000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1665640361445</created>
@@ -253,7 +254,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669195399683</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="1">
+      <created>1671420991272</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671420991272</updated>
+    </task>
+    <task id="LOCAL-00008" summary="help">
+      <created>1672972151149</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672972151149</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,9 +301,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="111" />
     <MESSAGE value="112" />
-    <MESSAGE value="help" />
     <MESSAGE value="plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="plugin" />
+    <MESSAGE value="1" />
+    <MESSAGE value="help" />
+    <option name="LAST_COMMIT_MESSAGE" value="help" />
   </component>
   <component name="WindowStateProjectService">
     <state x="752" y="383" key="#Scopes" timestamp="1665639307717">
@@ -355,18 +371,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="625" y="229" key="NewModule_or_Project.wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1669168941759" />
-    <state x="466" y="288" width="1040" height="708" key="SettingsEditor" timestamp="1669172471094">
+    <state x="466" y="288" width="1040" height="708" key="SettingsEditor" timestamp="1672971384336">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="466" y="288" width="1040" height="708" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1669172471094" />
+    <state x="466" y="288" width="1040" height="708" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1672971384336" />
     <state width="506" height="446" key="SwitcherDM" timestamp="1669190198352">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="506" height="446" key="SwitcherDM/0.0.1920.1050@0.0.1920.1050" timestamp="1669190198352" />
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1669195402049">
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1672972153506">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1669195402049" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1672972153506" />
     <state width="968" height="533" key="XDebugger.FullValuePopup" timestamp="1667800644467">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -395,10 +411,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1669190328722" />
-    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup" timestamp="1669190486493">
+    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup" timestamp="1671760410155">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1669190486493" />
+    <state x="963" y="207" width="672" height="676" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1671760410155" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
